@@ -12,7 +12,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchAthlete = async () => {
       try {
-        const { data } = await axios.get(`/api/athletes/${id}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/athletes/${id}`);
         setAthlete(data);
       } catch (error) {
         console.error(error);

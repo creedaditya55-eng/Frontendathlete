@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const { data } = await axios.post('/api/auth/login', { email, password });
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password });
       setUser(data);
       localStorage.setItem('athleteUser', JSON.stringify(data));
       toast.success('Login successful!');
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (formData) => {
     try {
-      const { data } = await axios.post('/api/auth/register', formData, {
+      const { data } = await axios.post( `${import.meta.env.VITE_API_URL}/api/auth/register`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setUser(data);

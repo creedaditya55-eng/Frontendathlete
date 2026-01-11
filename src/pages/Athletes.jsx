@@ -20,7 +20,7 @@ const Athletes = () => {
         if (!value) params.delete(key);
       }
       
-      const { data } = await axios.get(`/api/athletes?${params.toString()}`);
+      const { data } = await axios.get( `${import.meta.env.VITE_API_URL}/api/athletes?${params.toString()}`);
       setAthletes(data);
     } catch (error) {
       console.error('Error fetching athletes', error);

@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const { data } = await axios.get('/api/athletes/stats/public');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/athletes/stats/public`);
         setStats(data);
       } catch (error) {
         console.error('Error fetching stats', error);

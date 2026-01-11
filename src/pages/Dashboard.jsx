@@ -18,7 +18,7 @@ const Dashboard = () => {
         const config = {
             headers: { Authorization: `Bearer ${user.token}` }
         };
-        const { data } = await axios.put('/api/athletes/profile', formData, config);
+        const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/api/athletes/profile`, formData, config);
         updateUser({...user, ...data});
         toast.success('Profile Updated');
     } catch (error) {
@@ -34,7 +34,7 @@ const Dashboard = () => {
           const config = {
             headers: { Authorization: `Bearer ${user.token}` }
         };
-        const { data } = await axios.post('/api/athletes/video', newVideo, config);
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/athletes/video`, newVideo, config);
         updateUser({...user, videos: data});
         setNewVideo({ url: '', platform: 'youtube', title: '' });
         toast.success('Video Added');
@@ -51,7 +51,7 @@ const Dashboard = () => {
           const config = {
             headers: { Authorization: `Bearer ${user.token}` }
         };
-        const { data } = await axios.delete(`/api/athletes/video/${videoId}`, config);
+        const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/api/athletes/video/${videoId}`, config);
         updateUser({...user, videos: data});
         toast.success('Video Removed');
       } catch (error) {

@@ -25,7 +25,7 @@ const Login = () => {
   const handleResetSubmit = async (e) => {
       e.preventDefault();
       try {
-          await axios.post('/api/auth/reset-password', {
+          await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/reset-password`, {
               email: resetEmail,
               athleteID,
               newPassword
